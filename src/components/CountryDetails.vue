@@ -20,7 +20,7 @@
         <p><span>Languages:</span> {{languages}}</p>
       </div>
 
-      <div class="border-countries">
+      <div class="border-countries" v-show="borders.length > 0">
         <h4>Border Countries:</h4>
         <div class="borders">
             <div class="btn" v-for="(border, index) in borders" :key="index">{{border.name}}</div>

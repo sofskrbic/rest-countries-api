@@ -58,8 +58,10 @@ const store = new Vuex.Store({
         .then(response => {
           let query = response.data.borders
           query = query.join(';').split(',')
-          axios.get('https://restcountries.eu/rest/v2/alpha?codes='+query)
+          if(query != "") {
+            axios.get('https://restcountries.eu/rest/v2/alpha?codes='+query)
           .then(res => commit('setListOfBorders', {borders: res.data}))
+        }
         })
         .catch(err => console.error(`An error occurred trying to complete the request: ${err.message}`))
         commit('changeLoadingStatus', {loading: false})
