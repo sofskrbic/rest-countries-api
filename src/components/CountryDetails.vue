@@ -23,7 +23,10 @@
       <div class="border-countries" v-show="borders.length > 0">
         <h4>Border Countries:</h4>
         <div class="borders">
-            <div class="btn" v-for="(border, index) in borders" :key="index">{{border.name}}</div>
+            <div class="btn" v-for="(border, index) in borders" 
+              :key="index"
+              @click="goToCountry(border)">
+              {{border.name}}</div>
         </div>
       </div>
     </div>
@@ -41,6 +44,14 @@ export default {
   methods: {
     goBack() {
       this.$router.go(-1)
+    },
+    goToCountry(border){
+      this.$store.dispatch('selectCountry', border.alpha3Code)
+      this.$router.push({ path: `/country/${border.alpha3Code}`})
+    },
+    loadCountry(){
+      this.$store.dispatch('selectCountry', this.$route.params.countryName)
+      this.$store.dispatch('findBorders', this.$route.params.countryName)
     }
   },
   computed: {
@@ -75,8 +86,14 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('selectCountry', this.$route.params.countryName)
-    this.$store.dispatch('findBorders', this.$route.params.countryName)
+    // this.$store.dispatch('selectCountry', this.$route.params.countryName)
+    // this.$store.dispatch('findBorders', this.$route.params.countryName)
+    this.loadCountry()
+  },
+  watch: {
+    '$route.params.countryName': function() {
+      this.loadCountry()
+    }
   }
 }
 </script>
