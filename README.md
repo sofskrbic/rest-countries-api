@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [FrontendMentor](https://your-solution-url.com)
-- Live Site URL: [GitHubPages](https://your-live-site-url.com)
+- Live Site URL: [GitHubPages](https://sofskrbic.github.io/rest-countries-api/)
 
 ## My process
 
