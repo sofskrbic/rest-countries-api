@@ -70,4 +70,11 @@ export default {
   p:last-child {
     padding-bottom: 1rem;
   }
+
+  @media (min-width: 1440px) {
+    .container {
+      width: 20%;
+      margin-right: 2rem;
+    }
+  }
 </style>

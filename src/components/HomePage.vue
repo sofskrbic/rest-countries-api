@@ -1,17 +1,21 @@
 <template>
   <div>
-    <SearchField
-      :countries="countries" />
-    <SelectFilter 
-      :options="regions"
-      :default="'Filter by Region'"
-      class="select"
-      @filterActive="filter = true"/>
+    <div class="split">
+      <SearchField
+        :countries="countries" />
+      <SelectFilter
+        :options="regions"
+        :default="'Filter by Region'"
+        class="select"
+        @filterActive="filter = true"/>
+    </div>
     <LoadingSpinner :status="loading" />
-    <CountryCard v-for="(country, index) in countries" 
-      :key="index" 
-      :country="country"
-      />
+    <div class="country-container">
+      <CountryCard v-for="(country, index) in countries"
+        :key="index"
+        :country="country"
+        />
+    </div>
   </div>
 </template>
 
@@ -57,5 +61,23 @@ export default {
 <style scoped>
   body {
     font-size: var(--fs-homepage);
+  }
+
+  .country-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1440px) {
+    .country-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-inline: 2rem;
+    }
+
+    .split {
+      display: flex;
+      margin-block: 1rem;
+    }
   }
 </style>

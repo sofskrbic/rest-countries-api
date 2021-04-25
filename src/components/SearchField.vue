@@ -140,4 +140,22 @@ export default {
     text-decoration: none;
     color: var(--clr-text);
   }
+
+  @media (min-width: 1440px) {
+    .container-input {
+      width: 40%;
+      margin-inline: unset;
+      margin-left: 4.5rem;
+    }
+
+    .autocomplete-result img {
+      width: 8%;
+      margin-right: 1rem;
+    }
+
+    .autocomplete-result a {
+      display: flex;
+      align-items: center;
+    }
+  }
 </style>

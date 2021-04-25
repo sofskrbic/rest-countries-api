@@ -81,10 +81,6 @@ export default {
   font-size: 0.875rem;
 }
 
-/* .custom-select .selected.open {
-  border: 1px solid var(--clr-lm-input);
-} */
-
 .custom-select .selected::after {
   position: absolute;
   content: "";
@@ -100,9 +96,6 @@ export default {
   color: var(--clr-text);
   border-radius: 6px;
   overflow: hidden;
-  /* border-right: 1px solid var(--clr-lm-input);
-  border-left: 1px solid var(--clr-lm-input);
-  border-bottom: 1px solid var(--clr-lm-input); */
   position: absolute;
   background-color: var(--clr-elements);
   top: 4rem;
@@ -125,5 +118,18 @@ export default {
 
 .selectHide {
   display: none;
+}
+
+@media (min-width: 1440px) {
+  .custom-select {
+    width: 15%;
+    margin-left: auto;
+    margin-right: 4.5rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .custom-select .selected::after {
+    top: 26px;
+  }
 }
 </style>

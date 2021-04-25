@@ -48,6 +48,7 @@ const store = new Vuex.Store({
           })
           commit('changeLoadingStatus', {loading:false})
         })
+        .catch(err => console.error("An error has occurred: " + err.message))
     },
     // Select a country by its Alpha 3 Code
     selectCountry({ commit }, code) {
@@ -57,6 +58,7 @@ const store = new Vuex.Store({
             country: response.data
           })
         })
+        .catch(err => console.error("An error has occurred: " + err.message))
     },
     // find borders
     findBorders({ commit }, code) {

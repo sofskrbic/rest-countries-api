@@ -44,4 +44,14 @@ export default {
     cursor: pointer;
     color: var(--clr-text);
   }
+
+  @media (min-width: 1440px) {
+    .container {
+      padding-inline: 4rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+    }
+  }
 </style>

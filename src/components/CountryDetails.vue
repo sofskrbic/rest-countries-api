@@ -6,29 +6,32 @@
       <span>Back</span>
     </div>
     <div class="country-details">
-      <img class="flag" :src="country.flag" alt="">
-      <h3>{{country.name}}</h3>
-      <p><span>Native Name:</span> {{country.nativeName}}</p>
-      <p><span>Population:</span> {{population}}</p>
-      <p><span>Region:</span> {{country.region}}</p>
-      <p><span>Sub Region:</span> {{country.subregion}}</p>
-      <p><span>Capital:</span> {{country.capital}}</p>
-
-      <div class="official-details">
-        <p><span>Top Level Domain:</span> {{topLevelDomain}}</p>
-        <p><span>Currencies:</span> {{currencies}}</p>
-        <p><span>Languages:</span> {{languages}}</p>
-      </div>
-
-      <div class="border-countries" v-show="borders.length > 0">
-        <h4>Border Countries:</h4>
-        <div class="borders">
-            <div class="btn" v-for="(border, index) in borders" 
-              :key="index"
-              @click="goToCountry(border)">
-              {{border.name}}</div>
+        <img class="flag" :src="country.flag" alt="">
+        <div class="right">
+          <div class="basic-details">
+            <h3>{{country.name}}</h3>
+            <p><span>Native Name:</span> {{country.nativeName}}</p>
+            <p><span>Population:</span> {{population}}</p>
+            <p><span>Region:</span> {{country.region}}</p>
+            <p><span>Sub Region:</span> {{country.subregion}}</p>
+            <p><span>Capital:</span> {{country.capital}}</p>
+          </div>
+          <div class="official-details">
+            <p><span>Top Level Domain:</span> {{topLevelDomain}}</p>
+            <p><span>Currencies:</span> {{currencies}}</p>
+            <p><span>Languages:</span> {{languages}}</p>
+          </div>
+          <div class="border-countries" v-show="borders.length > 0">
+            <h4>Border Countries:</h4>
+            <div class="borders">
+                <div class="btn" v-for="(border, index) in borders" 
+                  :key="index"
+                  @click="goToCountry(border)">
+                  {{border.name}}</div>
+            </div>
+          </div>
         </div>
-      </div>
+
     </div>
   </div>
 </template>
@@ -95,8 +98,6 @@ export default {
     }
   },
   created() {
-    // this.$store.dispatch('selectCountry', this.$route.params.countryName)
-    // this.$store.dispatch('findBorders', this.$route.params.countryName)
     this.resetBorders()
     this.loadCountry()
   },
@@ -183,5 +184,57 @@ export default {
   .borders > .btn {
     margin-bottom: .5rem;
     margin-right: .5rem;
+  }
+
+  @media (min-width: 1440px) {
+    .container {
+      padding: 2rem 4rem;
+    }
+
+    .country-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .country-details img {
+      flex-basis: 40%;
+      height: 100%;
+    }
+
+    .right {
+      display: flex;
+      flex-basis: 60%;
+      flex-wrap: wrap;
+    }
+
+    .basic-details {
+      margin-left: 6rem;
+      flex-basis: 50%;
+    }
+
+    .official-details {
+      margin-top: 3rem;
+      margin-left: 1rem;
+    }
+
+    .border-countries {
+      display: flex;
+      align-items: center;
+      margin-left: 6rem;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .border-countries h4 {
+      margin-right: .8rem;
+    }
+
+    .borders {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
   }
 </style>
