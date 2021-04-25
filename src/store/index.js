@@ -28,6 +28,9 @@ const store = new Vuex.Store({
     },
     setListOfBorders(state, payload) {
       state.borders = payload.borders
+    },
+    resetBorders(state) {
+      state.borders = []
     }
   },
   actions: {

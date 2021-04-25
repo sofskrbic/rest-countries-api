@@ -52,6 +52,9 @@ export default {
     loadCountry(){
       this.$store.dispatch('selectCountry', this.$route.params.countryName)
       this.$store.dispatch('findBorders', this.$route.params.countryName)
+    },
+    resetBorders() {
+      this.$store.commit('resetBorders')
     }
   },
   computed: {
@@ -62,24 +65,30 @@ export default {
       return this.$store.getters.singleCountry
     },
     population() {
-      return this.country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      return this.country.population ? this.country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : ''
     },
     topLevelDomain() {
-      return this.country.topLevelDomain.join(', ')
+      return this.country.topLevelDomain ? this.country.topLevelDomain.join(', ') : ''
     },
     currencies() {
       let listOfCurrencies = []
-      this.country.currencies.forEach(currency => {
-        listOfCurrencies.push(currency.name)
-      })
-      return listOfCurrencies.join(', ')
+      if (this.country.currencies) {
+        this.country.currencies.forEach(currency => {
+          listOfCurrencies.push(currency.name)
+        })
+        return listOfCurrencies.join(', ')
+      }
+      return ''
     },
     languages() {
       let listOfLanguages = []
-      this.country.languages.forEach(language => {
-        listOfLanguages.push(language.name)
-      })
-      return listOfLanguages.join(', ')
+      if(this.country.languages) {
+        this.country.languages.forEach(language => {
+          listOfLanguages.push(language.name)
+        })
+        return listOfLanguages.join(', ')
+      }
+      return ''
     },
     borders() {
       return this.$store.getters.borders
@@ -88,10 +97,12 @@ export default {
   created() {
     // this.$store.dispatch('selectCountry', this.$route.params.countryName)
     // this.$store.dispatch('findBorders', this.$route.params.countryName)
+    this.resetBorders()
     this.loadCountry()
   },
   watch: {
     '$route.params.countryName': function() {
+      this.resetBorders()
       this.loadCountry()
     }
   }
