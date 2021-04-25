@@ -39,10 +39,10 @@ export default {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: var(--clr-lm-elements);
+    background-color: var(--clr-elements);
     margin-inline: auto;
     margin-block: 2.5rem;
-    box-shadow: 0 1px 3px #e0e0e0;
+    box-shadow: 0 1px 3px var(--clr-box-shadow);
   }
 
   .flag img {

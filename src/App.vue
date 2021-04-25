@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AppHeader />
+    <AppHeader @toggleTheme="toggleTheme"/>
     <router-view/>
   </div>
 </template>
@@ -12,6 +12,22 @@ export default {
   name: 'App',
   components: {
     AppHeader
+  },
+  computed: {
+    darkMode() {
+      return this.$store.getters.darkTheme
+    }
+  },
+  methods: {
+    toggleTheme() {
+      if(this.darkMode){
+        document.documentElement.setAttribute('data-theme', 'dark')
+        localStorage.setItem('theme', 'dark')
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light')
+        localStorage.setItem('theme', 'light')
+      }
+    }
   }
 }
 </script>
@@ -29,21 +45,18 @@ export default {
 body {
   width: 100%;
   height: 100vh;
-  background-color: var(--clr-lm-bg);
+  background-color: var(--clr-bg);
 }
 
 :root {
   /* COLORS */
   /* Light mode */
-  --clr-lm-text: hsl(200, 15%, 8%);
-  --clr-lm-input: hsl(0, 0%, 52%);
-  --clr-lm-input-hover: hsla(0, 0%, 52%, 0.2);
-  --clr-lm-bg: hsl(0, 0%, 98%);
-  --clr-lm-elements: hsl(0, 0%, 100%);
-  /* Dark mode */
-  --clr-dm-elements: hsl(209, 23%, 22%);
-  --clr-dm-bg: hsl(207, 26%, 17%);
-  --clr-dm-text: hsl(0, 0%, 100%);
+  --clr-text: hsl(200, 15%, 8%);
+  --clr-input: hsl(0, 0%, 52%);
+  --clr-input-hover: hsla(0, 0%, 52%, 0.2);
+  --clr-bg: hsl(0, 0%, 98%);
+  --clr-elements: hsl(0, 0%, 100%);
+  --clr-box-shadow: hsl(0, 0%, 88%);
 
   /* TYPOGRAPHY */
   --fs-homepage: 14px;
@@ -54,7 +67,16 @@ body {
   --fw-bold: 800;
 }
 
-h1, h2, h3, h4 {
-  color: var(--clr-lm-text);
+h1, h2, h3, h4, span, p {
+  color: var(--clr-text);
+}
+
+[data-theme="dark"] {
+  --clr-elements: hsl(209, 23%, 22%);
+  --clr-bg: hsl(207, 26%, 17%);
+  --clr-text: hsl(0, 0%, 100%);
+  --clr-input: hsl(0, 0%, 52%);
+  --clr-input-hover: hsla(0, 0%, 52%, 0.2);
+  --clr-box-shadow: hsl(0, 0%, 15%);
 }
 </style>

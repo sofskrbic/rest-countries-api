@@ -11,7 +11,8 @@ const store = new Vuex.Store({
     selectedCountry: Object(),
     selectedRegion: '',
     regions: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
-    borders: []
+    borders: [],
+    darkTheme: false
   },
   mutations: {
     changeLoadingStatus(state, payload) {
@@ -31,6 +32,9 @@ const store = new Vuex.Store({
     },
     resetBorders(state) {
       state.borders = []
+    },
+    toggleDarkTheme(state) {
+      state.darkTheme = !state.darkTheme
     }
   },
   actions: {
@@ -88,6 +92,9 @@ const store = new Vuex.Store({
     },
     borders: state => {
       return state.borders
+    },
+    darkTheme: state => {
+      return state.darkTheme
     }
   }
 })

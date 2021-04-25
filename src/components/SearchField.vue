@@ -1,6 +1,6 @@
 <template>
   <div class="container-input">
-    <fa-icon icon="search"></fa-icon>
+    <fa-icon icon="search" class="icon"></fa-icon>
     <input type="text" 
       name="country-name" 
       id="country-name" 
@@ -74,11 +74,11 @@ export default {
 
 <style scoped>
   .container-input {
-    background: var(--clr-lm-elements);
+    background: var(--clr-elements);
     border-radius: 10px;
     padding: 1rem 2rem;
     width: 90%;
-    box-shadow: 0 1px 3px #e0e0e0;
+    box-shadow: 0 1px 3px var(--clr-box-shadow);
     margin-top: 2rem;
     margin-inline: auto;
     position: relative;
@@ -94,18 +94,25 @@ export default {
     padding: .2rem 1rem;
     font-family: var(--ff-default);
     font-size: var(--fs-homepage);
+    background: transparent;
+    color: var(--clr-text);
   }
 
   input:focus {
-    border-bottom: 1px solid var(--clr-lm-input);
+    border-bottom: 1px solid var(--clr-input);
     outline: none;
+  }
+
+  .icon {
+    color: var(--clr-input);
   }
 
   .autocomplete-results {
     width: 100%;
     position: absolute;
-    background-color: var(--clr-lm-elements);
-    box-shadow: 0px -1px 3px #e0e0e0;
+    color: var(--clr-text);
+    background-color: var(--clr-elements);
+    box-shadow: 0px -1px 3px var(--clr-box-shadow);
     list-style: none;
     left: 50%;
     transform: translateX(-50%);
@@ -120,6 +127,7 @@ export default {
     align-items: center;
     padding: 1rem 2rem;
     font-family: var(--ff-default);
+    color: var(--clr-text);
   }
 
   .autocomplete-result img {
@@ -130,6 +138,6 @@ export default {
 
   a, a:visited {
     text-decoration: none;
-    color: var(--clr-lm-text);
+    color: var(--clr-text);
   }
 </style>

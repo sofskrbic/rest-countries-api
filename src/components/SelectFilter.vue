@@ -59,11 +59,12 @@ export default {
   .custom-select {
     position: relative;
     width: 60%;
-    background-color: var(--clr-lm-elements);
+    color: var(--clr-text);
+    background-color: var(--clr-elements);
     margin-top: 2rem;
     margin-inline: 1.5rem;
     padding: .8rem 1.5rem;
-    box-shadow: 0 1px 3px #e0e0e0;
+    box-shadow: 0 1px 3px var(--clr-box-shadow);
     border-radius: 10px;
     text-align: left;
     outline: none;
@@ -71,7 +72,7 @@ export default {
   }
 
 .custom-select .selected {
-  background-color: var(--clr-lm-elements);
+  background-color: var(--clr-elements);
   color: var(--clr-lm-text);
   padding-left: 1em;
   cursor: pointer;
@@ -92,18 +93,18 @@ export default {
   width: 0;
   height: 0;
   border: 5px solid transparent;
-  border-color: var(--clr-lm-input) transparent transparent transparent;
+  border-color: var(--clr-input) transparent transparent transparent;
 }
 
 .custom-select .items {
-  color: var(--clr-lm-text);
+  color: var(--clr-text);
   border-radius: 6px;
   overflow: hidden;
   /* border-right: 1px solid var(--clr-lm-input);
   border-left: 1px solid var(--clr-lm-input);
   border-bottom: 1px solid var(--clr-lm-input); */
   position: absolute;
-  background-color: var(--clr-lm-elements);
+  background-color: var(--clr-elements);
   top: 4rem;
   left: 0;
   right: 0;
@@ -111,7 +112,7 @@ export default {
 }
 
 .custom-select .items div {
-  color: var(--clr-lm-text);
+  color: var(--clr-text);
   line-height: 2rem;
   padding-left: 2em;
   cursor: pointer;
@@ -119,7 +120,7 @@ export default {
 }
 
 .custom-select .items div:hover {
-  background-color: var(--clr-lm-input-hover);
+  background-color: var(--clr-input-hover);
 }
 
 .selectHide {

@@ -2,7 +2,7 @@
   <div class="container">
     <LoadingSpinner :status="loading"/>
     <div class="btn" @click="goBack">
-      <fa-icon icon="arrow-left"></fa-icon>
+      <fa-icon icon="arrow-left" class="icon"></fa-icon>
       <span>Back</span>
     </div>
     <div class="country-details">
@@ -120,18 +120,23 @@ export default {
   }
 
   .btn {
-    background-color: var(--clr-lm-elements);
+    background-color: var(--clr-elements);
+    color: var(--clr-text);
     cursor: pointer;
     display: flex;
     align-items: center;
     margin-right: auto;
     padding: .3rem 1.5rem;
     margin-bottom: 4rem;
-    box-shadow: 1px 1px 5px #c7c7c7;
+    box-shadow: 1px 1px 5px var(--clr-box-shadow);
   }
 
   .btn span {
     padding-left: .5rem;
+  }
+
+  .icon {
+    color: var(--clr-text);
   }
 
   img {
