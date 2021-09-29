@@ -36,7 +36,6 @@ Users should be able to:
 ### Links
 
 - Solution URL: [FrontendMentor](https://your-solution-url.com)
-- Live Site URL: [Netlify](https://sofskrbic-rest-country-api.netlify.app/)
 
 ## My process
 
