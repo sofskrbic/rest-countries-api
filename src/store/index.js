@@ -41,7 +41,7 @@ const store = new Vuex.Store({
     // Gets the list of all countries
     getAllCountries({ commit }) {
       commit('changeLoadingStatus', {loading:true})
-      axios.get('https://restcountries.eu/rest/v2/all')
+      axios.get('https://restcountries.com/rest/v2/all')
         .then(response => {
           commit('setAllCountries', {
             data: response.data
@@ -52,7 +52,7 @@ const store = new Vuex.Store({
     },
     // Select a country by its Alpha 3 Code
     selectCountry({ commit }, code) {
-      axios.get('https://restcountries.eu/rest/v2/alpha/' + code)
+      axios.get('https://restcountries.com/rest/v2/alpha/' + code)
         .then(response => {
           commit('setSelectedCountry', {
             country: response.data
@@ -63,12 +63,12 @@ const store = new Vuex.Store({
     // find borders
     findBorders({ commit }, code) {
       commit('changeLoadingStatus', {loading: true})
-      axios.get('https://restcountries.eu/rest/v2/alpha/' + code + "?fields=borders")
+      axios.get('https://restcountries.com/rest/v2/alpha/' + code + "?fields=borders")
         .then(response => {
           let query = response.data.borders
           query = query.join(';').split(',')
           if(query != "") {
-            axios.get('https://restcountries.eu/rest/v2/alpha?codes='+query)
+            axios.get('https://restcountries.com/rest/v2/alpha?codes='+query)
           .then(res => commit('setListOfBorders', {borders: res.data}))
         }
         })
